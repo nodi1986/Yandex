@@ -23,6 +23,7 @@ import RasprodajaPage from './Pages/RasprodajaPage.jsx';
 import RubejPage from './Pages/RubejPage.jsx';
 import UyPage from './Pages/Uypage.jsx';
 import Coin from './Pages/Coin.jsx';
+import './i18n.js'
 const router = createBrowserRouter([
   {
     path: "/",

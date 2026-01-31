@@ -3,13 +3,14 @@ import logoLeft from "../logo-left.webp";
 import logoRight from "../logo-right.webp";
 import coin from "../coin.avif";
 import { Link } from "react-router-dom";
-
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
   return (
     <header className="w-full border-b bg-white">
       
-      <div className="bg-orange-500 text-white text-center text-sm py-2 font-semibold"> 40 000 баллов PLUS за каждый заказ по промокоду</div>
+      <div className="bg-orange-500 text-white text-center text-sm py-2 font-semibold">{t("blog.card1Title")}</div>
 
       <div className="max-w-[1400px] mx-auto flex items-center gap-4 px-4 py-4">
         <a href="/">
@@ -17,11 +18,11 @@ const Header = () => {
         </a>
        
  
-        <Link to='/katalog' className="bg-yellow-400 hover:bg-yellow-500 transition px-4 py-2 rounded-lg font-semibold">Каталог</Link>
+        <Link to='/katalog' className="bg-yellow-400 hover:bg-yellow-500 transition px-4 py-2 rounded-lg font-semibold">{t("blog.card1Text")}</Link>
 
      
         <div className="flex-1">
-          <input type="text" placeholder="Найти товары" className="w-full border-2 border-yellow-400 rounded-lg px-4 py-2 focus:outline-none"/>
+          <input type="text" placeholder={t("blog.card2Title")} className="w-full border-2 border-yellow-400 rounded-lg px-4 py-2 focus:outline-none"/>
         </div>
 
        
@@ -37,7 +38,11 @@ const Header = () => {
     <option>Uzb</option>
   </select>
 </div>
-
+ <div style={{ marginBottom: "20px" }}>
+        <button onClick={() => i18n.changeLanguage("ru")}>RU</button>
+        <button onClick={() => i18n.changeLanguage("en")}>EN</button>
+        <button onClick={() => i18n.changeLanguage("uz")}>UZ</button>
+      </div>
 
         
         <div className="relative cursor-pointer">
@@ -52,13 +57,13 @@ const Header = () => {
 
       
       <nav className="max-w-[1400px] mx-auto flex gap-6 px-4 py-2 text-sm font-medium list-none">
-        <Link to='/rasprodaja' className="text-red-500">Распродажа</Link>
-        <Link to='/korzina'>Корзинка</Link>
-        <Link to='/rub'>Из-за рубежа</Link>
-        <Link to='/kiyim'>Одежда</Link>
-        <Link to='/uy'>Товары для дома</Link>
-        <Link to='/kra'>Красота</Link>
-        <Link to='/el'>Электроника</Link>
+        <Link to='/rasprodaja' className="text-red-500">{t("blog.card2Text")}</Link>
+        <Link to='/korzina'>{t("blog.card3Title")}</Link> 
+        <Link to='/rub'>{t("blog.card3Text")}</Link>
+        <Link to='/kiyim'>{t("blog.card4Title")}</Link>
+        <Link to='/uy'>{t("blog.card4Text")}</Link>
+        <Link to='/kra'>{t("blog.b card5Title")}</Link>
+        <Link to='/el'>{t("blog.card5Text")}</Link>
       </nav>
 
     </header>
