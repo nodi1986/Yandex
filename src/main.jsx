@@ -24,6 +24,8 @@ import RubejPage from './Pages/RubejPage.jsx';
 import UyPage from './Pages/Uypage.jsx';
 import Coin from './Pages/Coin.jsx';
 import './i18n.js'
+import Korzinasavat from './Pages/korzinasavat.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +42,10 @@ const router = createBrowserRouter([
        {
         path: "/rasprodaja",
         element: <Rasprodaja/>
+      },
+        {
+        path: "/savat",
+        element: <Korzinasavat/>
       },
        {
         path: "/korzina",

@@ -5,7 +5,7 @@ import coin from "../coin.avif";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
-const Header = () => {
+const Header = ({ search, setSearch }) => {
   const { t, i18n } = useTranslation();
   return (
     <header className="w-full border-b bg-white">
@@ -22,8 +22,14 @@ const Header = () => {
 
      
         <div className="flex-1">
-          <input type="text" placeholder={t("blog.card2Title")} className="w-full border-2 border-yellow-400 rounded-lg px-4 py-2 focus:outline-none"/>
-        </div>
+        <input
+          type="text"
+          placeholder={t("blog.card2Title")}
+          value={search}               
+          onChange={(e) => setSearch(e.target.value)} 
+          className="w-full border-2 border-yellow-400 rounded-lg px-4 py-2 focus:outline-none"
+        />
+      </div>
 
        
         <Link to='/coin' className="flex items-center gap-1 border rounded-lg px-3 py-2">
@@ -31,24 +37,24 @@ const Header = () => {
           <span className="font-semibold">20</span>
         </Link>
                 
- <div className="relative">
-  <select className="border rounded-lg px-3 py-2 text-sm cursor-pointer focus:outline-none ">
-    <option>Eng</option>
-    <option>Rus</option>
-    <option>Uzb</option>
+<div className="relative w-max">
+  <select
+    className="border rounded-lg px-3 py-2 text-sm cursor-pointer focus:outline-none"
+    onChange={(e) => i18n.changeLanguage(e.target.value)}
+    defaultValue="en" 
+  >
+    <option value="ru">Ru</option>
+    <option value="en">Eng</option>
+    <option value="uz">UZ</option>
   </select>
 </div>
- <div style={{ marginBottom: "20px" }}>
-        <button onClick={() => i18n.changeLanguage("ru")}>RU</button>
-        <button onClick={() => i18n.changeLanguage("en")}>EN</button>
-        <button onClick={() => i18n.changeLanguage("uz")}>UZ</button>
-      </div>
+
 
         
-        <div className="relative cursor-pointer">
+        <Link to='/savat' className="relative cursor-pointer">
           <div className="w-9 h-9 rounded-full  flex items-center justify-center">🛒</div>
           
-        </div>
+        </Link>
 
 
       <img src={logoRight} alt="icon" className="h-10 rounded-full" />
@@ -62,7 +68,7 @@ const Header = () => {
         <Link to='/rub'>{t("blog.card3Text")}</Link>
         <Link to='/kiyim'>{t("blog.card4Title")}</Link>
         <Link to='/uy'>{t("blog.card4Text")}</Link>
-        <Link to='/kra'>{t("blog.b card5Title")}</Link>
+        <Link to='/kra'>{t("blog.card5Title")}</Link>
         <Link to='/el'>{t("blog.card5Text")}</Link>
       </nav>
 
